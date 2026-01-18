@@ -1,0 +1,797 @@
+@charset "UTF-8";
+
+body {
+    font-family: "A P-OTF Aoto Gothic StdN", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #DDF0FF; /* Ŝ̔wiFiFj */
+    color: #535353;
+}
+
+.design-frame {
+    max-width: 800px; /* X}[gtH^ubgŌ₷ɒ */
+    margin: 0 auto;
+    padding: 40px 20px;
+    background-color: transparent; /* wiFbodyɔC */
+    position: relative;
+    /* min-height: 100vh;  Ȃ */
+    box-sizing: border-box;
+}
+
+/* ݂̂ɂ ZNV */
+.profile-section {
+    background-color: #fdebf7; /* sN */
+    border-radius: 40px;
+    padding: 60px 50px; /* ]L߂ */
+    margin-bottom: 80px;
+    margin-top: 40px;
+}
+
+.profile-section h2 {
+    font-size: 32px;
+    font-weight: normal;
+    margin-top: 0;
+    margin-bottom: 30px;
+    color: #535353;
+}
+
+.profile-text {
+    font-size: 18px;
+    line-height: 2.0; /* sԂL߂ */
+    margin: 0;
+    text-align: justify;
+    font-weight: 500;
+}
+
+/* C^r[ ZNV */
+.interview-section h2 {
+    font-size: 32px;
+    font-weight: normal;
+    margin-bottom: 30px;
+    padding-left: 10px;
+    letter-spacing: 0.1em;
+}
+
+.interview-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* ACeԂ̌ */
+}
+
+.interview-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    border-radius: 15px;
+    height: 100px; /* Œ */
+    text-decoration: none; /* N̉ */
+    color: inherit; /* Feɍ킹 */
+    transition: transform 0.2s; /* zo[̓ */
+}
+
+.interview-item:hover {
+    transform: scale(1.02); /* zo[ɏg */
+    cursor: pointer;
+}
+
+/* eڂ̐F */
+.color-1 { background-color: #FDFFD0; } /* 黄色 */
+.color-2 { background-color: #FFE8C8; } /* ベージュ */
+.color-3 { background-color: #FFCAB7; } /* オレンジ */
+.color-4 { background-color: #FFA5AC; } /* 赤(ピンク) */
+
+.interview-item .index {
+    font-size: 24px;
+    margin-right: 20px;
+    color: #454545;
+}
+
+.interview-item .title {
+    font-size: 24px;
+    flex-grow: 1; /* ]𖄂߂ */
+    color: #454545;
+}
+
+.illustration-placeholder {
+    width: 100px;
+    height: 100px;
+    background-color: #d9d9d9;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0; /* kȂ */
+    margin-right: -10px; /* ẼpfBO𑊎E */
+}
+
+/* tb^[iSj */
+footer {
+    width: 100%;
+    margin-top: 50px;
+    text-align: right;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    box-sizing: border-box; /* padding܂߂vZ */
+}
+
+.footer-logo-img {
+    width: 130px; /* ロゴを調整 */
+    height: auto;
+    vertical-align: bottom;
+}
+
+.next-page-link {
+    display: inline-block;
+    padding: 10px 30px;
+    color: #535353;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    border: 2px solid #cccccc; /* 上のバー(ヘッダー)と同じ枠線色 */
+    border-radius: 30px;
+    transition: all 0.3s;
+    background-color: #DDF0FF; /* 上のバー(ヘッダー)と同じ背景色 */
+}
+
+.next-page-link:hover {
+    background-color: #ffffff; /* ホバー時に白く */
+    border-color: #bbbbbb;
+    color: #535353;
+}
+/* ?l????? ?Z?N?V???? */
+.character-intro {
+    margin-bottom: 60px;
+    padding: 0 20px;
+}
+
+.character-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 60px;
+    gap: 40px;
+}
+
+.character-item:last-child {
+    margin-bottom: 0;
+}
+
+.character-icon {
+    width: 150px;
+    height: 150px;
+    background-color: #dcdcdc;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.4;
+    color: #454545;
+    flex-shrink: 0;
+}
+
+.character-info h3 {
+    font-size: 28px;
+    font-weight: normal;
+    margin: 0 0 15px 0;
+    color: #556b8d; /* ???????????????O???[ */
+}
+
+.character-info p {
+    font-size: 16px;
+    line-height: 1.8;
+    margin: 0;
+    color: #535353;
+    font-weight: 500;
+}
+
+/* --- ?`???b?g?X?^?C?? (????) --- */
+
+/* --- チャットスタイル --- */
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    gap: 100px; /* 吹き出しの間隔をさらに広げる */
+    margin-top: 40px;
+}
+
+.chat-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    opacity: 0; /* 初期状態: 透明 */
+    transform: translateY(60px); /* 初期状態: さらに下に */
+    transition: all 1.5s ease-out; /* アニメーション時間を長くしてゆっくりに */
+}
+
+.chat-row.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.chat-row.me {
+    flex-direction: row-reverse;
+}
+
+/* 小さいアイコン */
+.chat-row .chat-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.2;
+    color: #454545;
+    flex-shrink: 0;
+    background-color: #dcdcdc;
+}
+
+.chat-bubble {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    position: relative;
+    max-width: 70%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.chat-row.nozomi .chat-bubble {
+    border-top-left-radius: 0;
+}
+
+.chat-row.me .chat-bubble {
+    border-top-right-radius: 0;
+    background-color: #f0f8ff;
+}
+
+.chat-bubble p {
+    margin: 0;
+    line-height: 1.8; /* 行間を元に戻す */
+    font-size: 18px;
+    text-align: justify;
+}
+
+.custom-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 40px;
+    background-color: #DDF0FF; /* wiƓ */
+    border-bottom: 2px solid #ccc; /* ̋E */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.header-logo-img {
+    height: 70px;
+    width: auto;
+}
+
+.header-nav {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 140px;
+    height: 60px;
+    border-radius: 15px;
+    text-decoration: none;
+    color: #454545;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1.2;
+    transition: transform 0.2s;
+}
+
+.nav-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* ???????A?C?R?? */
+.hanging-icon {
+    position: absolute;
+    bottom: -40px; /* ?w?b?_?[???????o?? */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.icon-circle {
+    width: 80px;
+    height: 80px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+}
+
+/* --- ?^?C?g???q?[???[?Z?N?V???? --- */
+.title-hero {
+    position: relative;
+    padding: 200px 20px 60px; /* 上の余白を広げる */
+    text-align: center;
+    overflow: hidden;
+}
+
+.title-hero h1 {
+    position: relative;
+    z-index: 2;
+    font-size: 36px;
+    font-weight: normal;
+    margin: 0;
+    letter-spacing: 0.05em;
+}
+
+/* --- タイトル背景シェイチE--- */
+
+/* --- 導E質問セクション --- */
+.intro-question {
+    position: relative;
+    padding: 240px 20px 120px; /* 上の間隔を大きく広げる */
+    margin-bottom: 40px;
+    display: flex; /* 上下左右中央揁E */
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    overflow: hidden;
+}
+
+.question-wrapper {
+    position: relative;
+    display: inline-block; /* 中身に合わせてサイズ可夁E*/
+}
+
+.question-text {
+    font-size: 32px; /* 斁Eを大きく */
+    font-weight: normal;
+    color: #333;
+    position: relative;
+    z-index: 2; /* 斁EをシェイプE上に */
+    letter-spacing: 0.1em;
+    font-family: "A P-OTF Aoto Gothic StdN", "Hiragino Kaku Gothic ProN", sans-serif;
+    margin: 0;
+}
+
+/* --- 背景シェイプ (四角→丸) --- */
+.bg-shape {
+    position: absolute;
+    z-index: -1; /* 文字の下に配置 */
+    background-color: #ffffff; 
+    opacity: 0.9;
+}
+
+/* 1つ目: やや四角い（右寄り） */
+.shape-1 {
+    top: 800px;
+    right: -250px; /* さらに画面端へ */
+    width: 350px;
+    height: 300px;
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; /* もう少し整った有機的な形 */
+    background: #ffffff; /* 白 (ベタ塗り) */
+}
+
+/* 2つ目: 少し丸く（左寄り） */
+.shape-2 {
+    top: 1300px;
+    left: -280px; /* さらに画面端へ */
+    width: 400px;
+    height: 400px;
+    border-radius: 45% 55% 40% 60% / 55% 45% 60% 40%; /* バランスの良い不定形 */
+    background: #fdffd0; /* 薄い黄色 (ベタ塗り) */
+}
+
+/* 3つ目: 丸い（右寄り） */
+.shape-3 {
+    top: 1900px;
+    right: -280px; /* さらに画面端へ */
+    width: 380px;
+    height: 380px;
+    border-radius: 50%; /* 綺麗な円形に */
+    background: #fff8b8; /* 黄色 (さらに薄く調整) */
+}
+
+/* 4つ目: 少し丸く（左寄り） */
+.shape-4 {
+    top: 2500px;
+    left: -250px;
+    width: 360px;
+    height: 360px;
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    background: #fdffd0;
+}
+
+/* 5つ目: 丸い（右寄り） */
+.shape-5 {
+    top: 3100px;
+    right: -260px;
+    width: 390px;
+    height: 390px;
+    border-radius: 50%;
+    background: #fff8b8;
+}
+
+/* 6つ目: ポワンとした形（左寄り） */
+.shape-6 {
+    top: 3700px;
+    left: -270px;
+    width: 370px;
+    height: 370px;
+    border-radius: 53% 47% 52% 48% / 54% 42% 58% 46%;
+    background: #fdffd0;
+}
+
+/* 7つ目: 楕円形（右寄り） */
+.shape-7 {
+    top: 4300px;
+    right: -250px;
+    width: 360px;
+    height: 380px;
+    border-radius: 50%;
+    background: #fff8b8;
+}
+
+/* 8つ目: 丸（左寄り） */
+.shape-8 {
+    top: 4900px;
+    left: -260px;
+    width: 370px;
+    height: 370px;
+    border-radius: 48% 52% 60% 40% / 50% 60% 40% 50%;
+    background: #fdffd0;
+}
+
+/* 9つ目: 丸（右寄り） */
+.shape-9 {
+    top: 5500px;
+    right: -270px;
+    width: 380px;
+    height: 380px;
+    border-radius: 50%;
+    background: #fff8b8;
+}
+
+/* --- Theme Color Modifications --- */
+/* Override bg-shapes based on theme class on body */
+/* Shapes start light and get darker as number increases */
+
+/* Page 2 (Default/Yellow) - Theme 1 : Triangle -> Round (3 steps) */
+.theme-1 .shape-1 { 
+    border-radius: 0; clip-path: polygon(50% 0%, 0% 100%, 100% 100%); transform: rotate(10deg); 
+}
+.theme-1 .shape-2 { background-color: #ffffe5; clip-path: none; border-radius: 50% 50% 50% 50% / 70% 70% 30% 30%; transform: rotate(190deg); /* Soft Triangle */ }
+.theme-1 .shape-3 { background-color: #fffad9; clip-path: none; border-radius: 50%; transform: none; /* Circle */ }
+
+/* Page 3 (Beige) - Theme 2 : Square -> Round (8 steps) */
+.theme-2 .shape-1 { 
+    clip-path: none; border-radius: 0; transform: rotate(10deg); 
+}
+.theme-2 .shape-2 { background-color: #fffdf9; clip-path: none; border-radius: 10px; transform: rotate(-10deg); }
+.theme-2 .shape-3 { background-color: #fff7eb; clip-path: none; border-radius: 20px; transform: rotate(5deg); }
+.theme-2 .shape-4 { background-color: #ffefdd; clip-path: none; border-radius: 40px; transform: rotate(-5deg); }
+.theme-2 .shape-5 { background-color: #ffe6ce; clip-path: none; border-radius: 35%; transform: rotate(8deg); }
+.theme-2 .shape-6 { background-color: #ffdec0; clip-path: none; border-radius: 42%; transform: rotate(-8deg); }
+.theme-2 .shape-7 { background-color: #ffd5b2; clip-path: none; border-radius: 48%; transform: none; }
+.theme-2 .shape-8 { background-color: #ffcca3; clip-path: none; border-radius: 50%; transform: none; /* Circle */ }
+
+/* Page 4 (Orange-ish) - Theme 3 : Hexagon -> Round (3 steps) */
+.theme-3 .shape-1 { 
+    border-radius: 0; clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%); transform: rotate(15deg); 
+}
+/* Step 2: Chamfered Hexagon (Corner-cut) to simulate rounding */
+.theme-3 .shape-2 { 
+    background-color: #fff0eb; 
+    border-radius: 0; 
+    /* 12-point polygon: cutting the 6 corners of the hexagon */
+    clip-path: polygon(35% 0%, 65% 0%, 95% 18%, 100% 40%, 100% 60%, 95% 82%, 65% 100%, 35% 100%, 5% 82%, 0% 60%, 0% 40%, 5% 18%); 
+    transform: rotate(-15deg); 
+}
+.theme-3 .shape-3 { background-color: #ffdbcc; clip-path: none; border-radius: 50%; transform: none; /* Circle */ }
+
+/* Page 5 (Pink) - Theme 4 : Star -> Round (6 steps) */
+/* Shape 1: Standard Star (5 points) */
+.theme-4 .shape-1 { 
+    border-radius: 0; 
+    clip-path: polygon(50% 0%, 62% 34%, 98% 35%, 69% 56%, 79% 90%, 50% 70%, 21% 90%, 31% 56%, 2% 35%, 38% 34%); 
+    transform: rotate(15deg); 
+}
+
+/* Shape 2: 7-point Star */
+.theme-4 .shape-2 { 
+    background-color: #ffeef0; width: 340px; height: 340px; border-radius: 0; 
+    clip-path: polygon(50% 0%, 63% 23%, 89% 19%, 79% 43%, 99% 61%, 73% 69%, 72% 95%, 50% 80%, 28% 95%, 27% 69%, 1% 61%, 21% 43%, 11% 19%, 37% 23%); 
+    transform: rotate(10deg); 
+}
+
+/* Shape 3: 10-point Star (Decagon star) */
+.theme-4 .shape-3 { 
+    background-color: #ffdce0; border-radius: 0; 
+    clip-path: polygon(50% 0%, 61% 17%, 79% 10%, 78% 29%, 98% 35%, 85% 50%, 98% 65%, 78% 71%, 79% 90%, 61% 83%, 50% 100%, 39% 83%, 21% 90%, 22% 71%, 2% 65%, 15% 50%, 2% 35%, 22% 29%, 21% 10%, 39% 17%); 
+    transform: rotate(5deg); 
+}
+
+/* Shape 4: 15-point Star (Starting to look like a gear/sun) */
+.theme-4 .shape-4 { 
+    background-color: #ffc9cf; border-radius: 0;
+    clip-path: polygon(50% 0%, 58% 11%, 70% 4%, 74% 18%, 87% 17%, 85% 30%, 98% 35%, 90% 46%, 100% 55%, 88% 62%, 93% 75%, 80% 77%, 79% 90%, 66% 87%, 60% 99%, 50% 90%, 40% 99%, 34% 87%, 21% 90%, 20% 77%, 7% 75%, 12% 62%, 0% 55%, 10% 46%, 2% 35%, 15% 30%, 13% 17%, 26% 18%, 30% 4%, 42% 11%);
+    transform: rotate(-10deg); 
+}
+
+/* Shape 5: 24-point Star (Almost a fuzzy circle) */
+.theme-4 .shape-5 { 
+    background-color: #ffb6bf; border-radius: 0; clip-path: none;
+    clip-path: polygon(50% 0%, 56% 5%, 63% 2%, 67% 8%, 75% 7%, 77% 14%, 85% 15%, 86% 23%, 93% 25%, 92% 33%, 98% 37%, 95% 44%, 100% 50%, 95% 56%, 98% 63%, 92% 67%, 93% 75%, 86% 77%, 85% 85%, 77% 86%, 75% 93%, 67% 92%, 63% 98%, 56% 95%, 50% 100%, 44% 95%, 37% 98%, 33% 92%, 25% 93%, 23% 86%, 15% 85%, 14% 77%, 7% 75%, 8% 67%, 2% 63%, 5% 56%, 0% 50%, 5% 44%, 2% 37%, 8% 33%, 7% 25%, 14% 23%, 15% 15%, 23% 14%, 25% 7%, 33% 8%, 37% 2%, 44% 5%);
+    transform: rotate(-15deg); 
+}
+
+/* Shape 6: Perfect Circle */
+.theme-4 .shape-6 { background-color: #ffa3ae; clip-path: none; border-radius: 50%; transform: none; }
+
+/* Next Page Link Overrides per Theme */
+
+/* Page 3 (Theme 2): Beige */
+.theme-2 .next-page-link {
+    background-color: #FFE8C8; /* 指定色 */
+    border-color: #FFE8C8; /* 枠線も同じ色に */
+    color: #535353;
+}
+.theme-2 .next-page-link:hover {
+    filter: brightness(0.95); /* 少しだけ暗く */
+    color: #535353;
+}
+
+/* Page 4 (Theme 3): Orange */
+.theme-3 .next-page-link {
+    background-color: #FFCAB7; /* 指定色 */
+    border-color: #FFCAB7; /* 枠線も同じ色に */
+    color: #535353;
+}
+.theme-3 .next-page-link:hover {
+    filter: brightness(0.95);
+    color: #535353;
+}
+
+/* Page 5 (Theme 4): Red (Pinkish Red) */
+.theme-4 .next-page-link {
+    background-color: #FFA5AC; /* 指定色 */
+    border-color: #FFA5AC; /* 枠線も同じ色に */
+    color: #535353;
+}
+.theme-4 .next-page-link:hover {
+    filter: brightness(0.95);
+    color: #535353;
+}
+
+/* �y�[�W�S�̂̃t�F�[�h�C�� */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+body {
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* �g�b�v�֖߂�{�^�� */
+#back-to-top {
+    position: fixed;
+    bottom: 80px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.8); /* 背景を薄く（半透明の白） */
+    color: #535353; /* 矢印の色を濃いグレーに */
+    border: 1px solid #ddd; /* 薄い枠線を追加 */
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: opacity 0.3s, transform 0.3s;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#back-to-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+#back-to-top:hover {
+    transform: translateY(-3px);
+    background-color: #333;
+}
+
+/* �X�}�z�^�u���b�g�Ή� */
+@media (max-width: 768px) {
+    .custom-header {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+    }
+    .header-logo-img {
+        height: 40px;
+        margin-bottom: 10px;
+    }
+    .header-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+    }
+    .nav-btn {
+        width: 45%;
+        height: 50px;
+        font-size: 12px;
+        padding: 5px;
+    }
+    .interview-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+    }
+    .interview-item .index {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    .interview-item .title {
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    .interview-item .illustration-placeholder {
+        margin-right: 0;
+    }
+    .chat-row {
+        width: 95%;
+    }
+    .balloon {
+        padding: 15px;
+        font-size: 14px;
+    }
+    .face-icon {
+        width: 50px;
+        height: 50px;
+    }
+    .design-frame {
+        padding: 15px;
+    }
+}
+
+
+/* �g�b�v�y�[�W�̃��X�g���A�C�R���C���X�g */
+.interview-item .illustration-placeholder {
+    background-color: transparent !important; /* ���̃O���[�𖳌��� */
+    color: transparent;
+    width: 80px;
+    height: 80px;
+    margin: 0 10px; /* �ʒu���� */
+    transition: transform 0.3s ease;
+}
+
+/* 1. ���[�L���O�z���f�[ (��) - �Z�p�` */
+.interview-item.color-1 .illustration-placeholder {
+    background-color: #FDFFD0 !important;
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+/* 2. �]�E (�x�[�W��) - �p�ێl�p */
+.interview-item.color-2 .illustration-placeholder {
+    background-color: #FFE8C8 !important;
+    border-radius: 15px;
+    transform: rotate(-10deg);
+}
+
+/* 3. ���t (�I�����W) - �� */
+.interview-item.color-3 .illustration-placeholder {
+    background-color: #FFCAB7 !important;
+    border-radius: 50%;
+}
+
+/* 4. ���M (�s���N) - �� */
+.interview-item.color-4 .illustration-placeholder {
+    background-color: #FFA5AC !important;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    transform: rotate(5deg);
+}
+
+/* �z�o�[���̓��� */
+.interview-item:hover .illustration-placeholder {
+    transform: scale(1.1);
+}
+.interview-item.color-2:hover .illustration-placeholder {
+    transform: scale(1.1) rotate(0deg); /* �X����߂� */
+}
+.interview-item.color-4:hover .illustration-placeholder {
+    transform: scale(1.1) rotate(20deg); /* ����ɌX���� */
+}
+
+
+/* �g�b�v�y�[�W�̃��C���r�W���A�� */
+.top-hero {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-top: 20px;
+}
+.main-title {
+    font-size: 36px;
+    color: #454545;
+    margin-bottom: 20px;
+    letter-spacing: 0.1em;
+}
+.main-visual {
+    max-width: 100%;
+    height: auto;
+    /* border-radius: 20px; */
+    /* box-shadow: 0 4px 10px rgba(0,0,0,0.1); */
+}
+
+
+.top-hero {
+    position: relative; /* �}�`�z�u�̂��߂�relative��ǉ� */
+}
+
+.hero-decoration {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    z-index: -1; /* �C���X�g�̌��ɔz�u */
+    opacity: 0.8;
+}
+
+/* ����F���F�̘Z�p�` */
+.deco-1 {
+    top: 50px;
+    left: 10%;
+    background-color: #FDFFD0;
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    transform: rotate(-15deg);
+    width: 120px;
+    height: 120px;
+}
+
+/* �E��F�x�[�W���̊p�ێl�p */
+.deco-2 {
+    top: 30px;
+    right: 15%;
+    background-color: #FFE8C8;
+    border-radius: 20px;
+    transform: rotate(10deg);
+}
+
+/* �����F�I�����W�̊� */
+.deco-3 {
+    bottom: 20px;
+    left: 15%;
+    background-color: #FFCAB7;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+}
+
+/* �E���F�s���N�̐� */
+.deco-4 {
+    bottom: 40px;
+    right: 10%;
+    background-color: #FFA5AC;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    transform: rotate(20deg);
+    width: 110px;
+    height: 110px;
+}
+

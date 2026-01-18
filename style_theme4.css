@@ -1,0 +1,38 @@
+/* Page 5 (Pink) - Theme 4 : Star -> Round (6 steps) */
+/* Shape 1: Standard Star (5 points) */
+.theme-4 .shape-1 { 
+    border-radius: 0; 
+    clip-path: polygon(50% 0%, 62% 34%, 98% 35%, 69% 56%, 79% 90%, 50% 70%, 21% 90%, 31% 56%, 2% 35%, 38% 34%); 
+    transform: rotate(15deg); 
+}
+
+/* Shape 2: 7-point Star */
+.theme-4 .shape-2 { 
+    background-color: #ffeef0; width: 340px; height: 340px; border-radius: 0; 
+    clip-path: polygon(50% 0%, 63% 23%, 89% 19%, 79% 43%, 99% 61%, 73% 69%, 72% 95%, 50% 80%, 28% 95%, 27% 69%, 1% 61%, 21% 43%, 11% 19%, 37% 23%); 
+    transform: rotate(10deg); 
+}
+
+/* Shape 3: 10-point Star (Decagon star) */
+.theme-4 .shape-3 { 
+    background-color: #ffdce0; border-radius: 0; 
+    clip-path: polygon(50% 0%, 61% 17%, 79% 10%, 78% 29%, 98% 35%, 85% 50%, 98% 65%, 78% 71%, 79% 90%, 61% 83%, 50% 100%, 39% 83%, 21% 90%, 22% 71%, 2% 65%, 15% 50%, 2% 35%, 22% 29%, 21% 10%, 39% 17%); 
+    transform: rotate(5deg); 
+}
+
+/* Shape 4: 15-point Star (Starting to look like a gear/sun) */
+.theme-4 .shape-4 { 
+    background-color: #ffc9cf; border-radius: 0;
+    clip-path: polygon(50% 0%, 58% 11%, 70% 4%, 74% 18%, 87% 17%, 85% 30%, 98% 35%, 90% 46%, 100% 55%, 88% 62%, 93% 75%, 80% 77%, 79% 90%, 66% 87%, 60% 99%, 50% 90%, 40% 99%, 34% 87%, 21% 90%, 20% 77%, 7% 75%, 12% 62%, 0% 55%, 10% 46%, 2% 35%, 15% 30%, 13% 17%, 26% 18%, 30% 4%, 42% 11%);
+    transform: rotate(-10deg); 
+}
+
+/* Shape 5: 24-point Star (Almost a fuzzy circle) */
+.theme-4 .shape-5 { 
+    background-color: #ffb6bf; border-radius: 0; clip-path: none;
+    clip-path: polygon(50% 0%, 56% 5%, 63% 2%, 67% 8%, 75% 7%, 77% 14%, 85% 15%, 86% 23%, 93% 25%, 92% 33%, 98% 37%, 95% 44%, 100% 50%, 95% 56%, 98% 63%, 92% 67%, 93% 75%, 86% 77%, 85% 85%, 77% 86%, 75% 93%, 67% 92%, 63% 98%, 56% 95%, 50% 100%, 44% 95%, 37% 98%, 33% 92%, 25% 93%, 23% 86%, 15% 85%, 14% 77%, 7% 75%, 8% 67%, 2% 63%, 5% 56%, 0% 50%, 5% 44%, 2% 37%, 8% 33%, 7% 25%, 14% 23%, 15% 15%, 23% 14%, 25% 7%, 33% 8%, 37% 2%, 44% 5%);
+    transform: rotate(-15deg); 
+}
+
+/* Shape 6: Perfect Circle */
+.theme-4 .shape-6 { background-color: #ffa3ae; clip-path: none; border-radius: 50%; transform: none; }
