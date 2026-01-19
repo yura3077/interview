@@ -170,6 +170,13 @@ footer {
     line-height: 1.4;
     color: #454545;
     flex-shrink: 0;
+    overflow: hidden; /* 画像がはみ出さないようにクリップ */
+}
+
+.character-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .character-info h3 {
@@ -544,36 +551,55 @@ footer {
 
 /* Next Page Link Overrides per Theme */
 
-/* Page 3 (Theme 2): Beige */
+/* Page 2 (Theme 1): Next Link to Page 3 (Beige) */
+.theme-1 .next-page-link {
+    background-color: #FFF6E5; /* 薄いベージュ */
+    border-color: #FFF6E5;
+    color: #535353;
+}
+.theme-1 .next-page-link:hover {
+    background-color: #FFE8C8; /* 濃いベージュ */
+    border-color: #FFE8C8;
+    filter: none;
+    color: #535353;
+}
+
+/* Page 3 (Theme 2): Next Link to Page 4 (Orange) */
 .theme-2 .next-page-link {
-    background-color: #FFE8C8; /* 指定色 */
-    border-color: #FFE8C8; /* 枠線も同じ色に */
+    background-color: #FFE4D9; /* 薄いオレンジ */
+    border-color: #FFE4D9;
     color: #535353;
 }
 .theme-2 .next-page-link:hover {
-    filter: brightness(0.95); /* 少しだけ暗く */
+    background-color: #FFCAB7; /* 濃いオレンジ */
+    border-color: #FFCAB7;
+    filter: none;
     color: #535353;
 }
 
-/* Page 4 (Theme 3): Orange */
+/* Page 4 (Theme 3): Next Link to Page 5 (Red/Pink) */
 .theme-3 .next-page-link {
-    background-color: #FFCAB7; /* 指定色 */
-    border-color: #FFCAB7; /* 枠線も同じ色に */
+    background-color: #FFDFE2; /* 薄い赤（ピンク） */
+    border-color: #FFDFE2;
     color: #535353;
 }
 .theme-3 .next-page-link:hover {
-    filter: brightness(0.95);
+    background-color: #FFA5AC; /* 濃い赤（ピンク） */
+    border-color: #FFA5AC;
+    filter: none;
     color: #535353;
 }
 
-/* Page 5 (Theme 4): Red (Pinkish Red) */
+/* Page 5 (Theme 4): Link to Top Page (Pink) */
 .theme-4 .next-page-link {
-    background-color: #FFA5AC; /* 指定色 */
-    border-color: #FFA5AC; /* 枠線も同じ色に */
+    background-color: #FFF0F2; /* さらに薄いピンク */
+    border-color: #FFF0F2;
     color: #535353;
 }
 .theme-4 .next-page-link:hover {
-    filter: brightness(0.95);
+    background-color: #FFA5AC; /* 濃いピンク */
+    border-color: #FFA5AC;
+    filter: none;
     color: #535353;
 }
 
@@ -735,7 +761,7 @@ body {
     letter-spacing: 0.1em;
 }
 .main-visual {
-    max-width: 100%;
+    max-width: 65%; /* 最初の人物（イラスト）を少し大きく調整 */
     height: auto;
     /* border-radius: 20px; */
     /* box-shadow: 0 4px 10px rgba(0,0,0,0.1); */
@@ -743,55 +769,59 @@ body {
 
 
 .top-hero {
-    position: relative; /* �}�`�z�u�̂��߂�relative��ǉ� */
+    position: relative; /* �}�`�z�u�̂��߂�relative��ǉ� */
 }
 
 .hero-decoration {
     position: absolute;
     width: 100px;
     height: 100px;
-    z-index: -1; /* �C���X�g�̌��ɔz�u */
+    z-index: -1; /* �C���X�g�̌��ɔz�u */
     opacity: 0.8;
 }
 
-/* ����F���F�̘Z�p�` */
+/* 左上：黄色の六角形 */
 .deco-1 {
     top: 50px;
-    left: 10%;
+    left: 8%;
     background-color: #FDFFD0;
     clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
     transform: rotate(-15deg);
-    width: 120px;
-    height: 120px;
+    width: 150px;
+    height: 150px;
 }
 
-/* �E��F�x�[�W���̊p�ێl�p */
+/* �E��F�x�[�W���̊p�ێl�p */
+/* 右上：ベージュの角丸四角 */
 .deco-2 {
     top: 30px;
-    right: 15%;
+    right: 12%;
     background-color: #FFE8C8;
     border-radius: 20px;
     transform: rotate(10deg);
+    width: 130px;
+    height: 130px;
 }
 
-/* �����F�I�����W�̊� */
+/* �����F�I�����W�̊� */
+/* 左下：オレンジの丸（回転がわかるように少し歪ませる） */
 .deco-3 {
     bottom: 20px;
-    left: 15%;
+    left: 12%;
     background-color: #FFCAB7;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
+    border-radius: 45% 55% 50% 50%;
+    width: 90px;
+    height: 90px;
 }
 
-/* �E���F�s���N�̐� */
+/* 右下：ピンクの星 */
 .deco-4 {
     bottom: 40px;
-    right: 10%;
+    right: 8%;
     background-color: #FFA5AC;
     clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
     transform: rotate(20deg);
-    width: 110px;
-    height: 110px;
+    width: 140px;
+    height: 140px;
 }
 
