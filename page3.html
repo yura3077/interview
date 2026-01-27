@@ -22,6 +22,7 @@
         </nav>
     </header>
 
+
     <div class="design-frame">
         <!-- タイトルセクション -->
         <section class="title-hero">
@@ -32,7 +33,7 @@
             <!-- 導入質問セクション -->
             <section class="intro-question">
                  <div class="question-wrapper">
-                    <p class="question-text">「バリューブックスに入社してからどのようなことをしましたか？」</p>
+                    <p class="question-text">「古本買取・販売会社に入社してからどのようなことをしましたか？」</p>
                  </div>
             </section>
 
@@ -51,11 +52,9 @@
                 <div class="chat-container">
                     <!-- 自分 -->
                     <div class="chat-row me">
-                        <div class="chat-icon character-icon">
-                            自分の<br>アイコン
-                        </div>
+                        <div class="chat-icon character-icon"><img src="images/無題227_20260119112810.JPG" alt="自分のアイコン"></div>
                         <div class="chat-bubble">
-                            <p>バリューブックスに入社してからの話をきかせてください！</p>
+                            <p>古本買取・販売会社に入社してからの話をきかせてください！</p>
                         </div>
                     </div>
 
@@ -63,15 +62,13 @@
                     <div class="chat-row nozomi">
                         <div class="chat-icon character-icon"><img src="images/無題222_20260118173733.jpg" alt="のぞみさん"></div>
                         <div class="chat-bubble">
-                            <p>幼馴染から、誘われたのがきっかけで2015年の 7月にバリューブックスに入社しました。当時ってまだバリューブックスがフルタイムの人とパートタイムの人で、結構違いがある感じだったんですよね。</p>
+                            <p>幼馴染から、誘われたのがきっかけで2015年の 7月に古本買取・販売会社に入社しました。当時ってまだ古本買取・販売会社がフルタイムの人とパートタイムの人で、結構違いがある感じだったんですよね。</p>
                         </div>
                     </div>
 
                     <!-- 自分 -->
                     <div class="chat-row me">
-                        <div class="chat-icon character-icon">
-                            自分の<br>アイコン
-                        </div>
+                        <div class="chat-icon character-icon"><img src="images/無題227_20260119112810.JPG" alt="自分のアイコン"></div>
                         <div class="chat-bubble">
                             <p>そうなんですね。どんな違いがあったんですか？</p>
                         </div>
@@ -87,9 +84,7 @@
 
                     <!-- 自分 -->
                     <div class="chat-row me">
-                        <div class="chat-icon character-icon">
-                            自分の<br>アイコン
-                        </div>
+                        <div class="chat-icon character-icon"><img src="images/無題227_20260119112810.JPG" alt="自分のアイコン"></div>
                         <div class="chat-bubble">
                             <p>5人中1人！それは少ないですね、、</p>
                         </div>
@@ -105,9 +100,7 @@
 
                     <!-- 自分 -->
                     <div class="chat-row me">
-                        <div class="chat-icon character-icon">
-                            自分の<br>アイコン
-                        </div>
+                        <div class="chat-icon character-icon"><img src="images/無題227_20260119112810.JPG" alt="自分のアイコン"></div>
                         <div class="chat-bubble">
                             <p>確かにそうですね。子育てをしている人にしか分からないこともありますもんね。</p>
                         </div>
@@ -123,9 +116,7 @@
 
                     <!-- 自分 -->
                     <div class="chat-row me">
-                        <div class="chat-icon character-icon">
-                            自分の<br>アイコン
-                        </div>
+                        <div class="chat-icon character-icon"><img src="images/無題227_20260119112810.JPG" alt="自分のアイコン"></div>
                         <div class="chat-bubble">
                             <p>会議で発言したんですね、、結構緊張しませんでした？</p>
                         </div>
@@ -141,9 +132,7 @@
 
                     <!-- 自分 -->
                     <div class="chat-row me">
-                        <div class="chat-icon character-icon">
-                            自分の<br>アイコン
-                        </div>
+                        <div class="chat-icon character-icon"><img src="images/無題227_20260119112810.JPG" alt="自分のアイコン"></div>
                         <div class="chat-bubble">
                             <p>そうだったんですね！発言した時どんな感じでした？</p>
                         </div>
@@ -157,11 +146,85 @@
                         </div>
                     </div>
 
+                    <!-- 5ページ目と同じサイズ・入れ方で3-1～3-6のスライドショー挿入 -->
+                    <div style="display: flex; justify-content: flex-start; margin-bottom: 60px;">
+                        <img id="slideshow-3-1to6" src="images/3-1.PNG" alt="3の写真" style="width: 350px; height: auto; border-radius: 10px; margin-right: 10px; display: block;">
+                    </div>
+
+                    <script>
+                    // 3-1～3-6スライドショー（Intersection Observerで表示時のみ開始）
+                    document.addEventListener('DOMContentLoaded', () => {
+                        const slideImg = document.getElementById('slideshow-3-1to6');
+                        if (slideImg) {
+                            const slideImages = [
+                                'images/3-1.PNG',
+                                'images/3-2.PNG',
+                                'images/3-3.PNG',
+                                'images/3-4.PNG',
+                                'images/3-5.PNG',
+                                'images/3-6.PNG'
+                            ];
+                            let idx = 0;
+                            let started = false;
+                            let observer = null;
+                            function imageExists(url, callback) {
+                                const img = new Image();
+                                img.onload = () => callback(true);
+                                img.onerror = () => callback(false);
+                                img.src = url;
+                            }
+                            function showNextImage() {
+                                if (idx < slideImages.length - 1) {
+                                    idx++;
+                                    imageExists(slideImages[idx], exists => {
+                                        if (exists) {
+                                            slideImg.style.display = '';
+                                            slideImg.src = slideImages[idx];
+                                        } else {
+                                            slideImg.style.display = 'none';
+                                        }
+                                    });
+                                    if (idx < slideImages.length - 1) {
+                                        setTimeout(showNextImage, 1000);
+                                    } else {
+                                        // 1周したら3-5,3-6だけでループ
+                                        idx = 4; // 3-5.PNGのインデックス
+                                        function loop35() {
+                                            idx = idx === 4 ? 5 : 4;
+                                            imageExists(slideImages[idx], exists => {
+                                                if (exists) {
+                                                    slideImg.style.display = '';
+                                                    slideImg.src = slideImages[idx];
+                                                } else {
+                                                    slideImg.style.display = 'none';
+                                                }
+                                            });
+                                            setTimeout(loop35, 1000);
+                                        }
+                                        setTimeout(loop35, 1000);
+                                    }
+                                }
+                            }
+                            function startSlideshowIfVisible(entries) {
+                                entries.forEach(entry => {
+                                    if (entry.isIntersecting && !started) {
+                                        started = true;
+                                        setTimeout(showNextImage, 1000);
+                                        if (observer) observer.disconnect();
+                                    }
+                                });
+                            }
+                            observer = new window.IntersectionObserver(startSlideshowIfVisible, {
+                                threshold: 0.3
+                            });
+                            observer.observe(slideImg);
+                        }
+                    });
+                    </script>
+
                     <!-- 自分 -->
                     <div class="chat-row me">
-                        <div class="chat-icon character-icon">
-                            自分の<br>アイコン
-                        </div>
+                        <div class="chat-icon character-icon"><img src="images/無題227_20260119112810.JPG" alt="自分のアイコン"></div>
                         <div class="chat-bubble">
                             <p>すんなり変わる方向になったんですね。</p>
                         </div>
@@ -171,15 +234,13 @@
                     <div class="chat-row nozomi">
                         <div class="chat-icon character-icon"><img src="images/無題222_20260118173733.jpg" alt="のぞみさん"></div>
                         <div class="chat-bubble">
-                            <p>そうですね。バリューブックスって 3年ごとに社長を変えていこうって決まってて、次の社長ってなってた時に、このジェンダーギャップ解消しなきゃねっていうのもあって。だったら一番そこの問題に近い鳥居さんが代表になるのがいいんじゃないっていう風になって私が代表になりました。</p>
+                            <p>そうですね。古本買取・販売会社って 3年ごとに社長を変えていこうって決まってて、次の社長ってなってた時に、このジェンダーギャップ解消しなきゃねっていうのもあって。だったら一番そこの問題に近い鳥居さんが代表になるのがいいんじゃないっていう風になって私が代表になりました。</p>
                         </div>
                     </div>
 
                     <!-- 自分 -->
                     <div class="chat-row me">
-                        <div class="chat-icon character-icon">
-                            自分の<br>アイコン
-                        </div>
+                        <div class="chat-icon character-icon"><img src="images/無題227_20260119112810.JPG" alt="自分のアイコン"></div>
                         <div class="chat-bubble">
                             <p>代表になった後どんなことをしたんですか？</p>
                         </div>
@@ -195,9 +256,7 @@
 
                     <!-- 自分 -->
                     <div class="chat-row me">
-                        <div class="chat-icon character-icon">
-                            自分の<br>アイコン
-                        </div>
+                        <div class="chat-icon character-icon"><img src="images/無題227_20260119112810.JPG" alt="自分のアイコン"></div>
                         <div class="chat-bubble">
                             <p>明確なビジョンがあったんですね。</p>
                         </div>
@@ -213,21 +272,82 @@
 
                 </div>
 
-                <!-- 追加GIF -->
-                <div class="page-bottom-visual" style="text-align: left; margin: 40px 0 20px 0;">
-                    <img src="images/20260119_084007.GIF" alt="Animation" style="max-width: 90%; height: auto; border-radius: 15px;">
-                </div>
+                <!-- スライドショーはfooter内に統一 -->
             </section>
         </main>
     </div> <!-- design-frame end -->
     
-    <footer>
-        <div class="next-page-container">
-            <a href="page4.html" class="next-page-link">心に刺さった言葉 &rarr;</a>
+    <footer style="overflow: visible; padding-bottom: 30px; padding-left: 20px;">
+        <div style="display: flex; align-items: flex-end; justify-content: space-between; width: 100%; min-width: 0;">
+            <div style="flex: 0 0 auto; min-width: 350px; min-height: 1px; display: flex; align-items: flex-end; overflow: visible;">
+                <img id="slideshow-3-3" src="images/3-3-1.PNG" alt="3の写真" style="width: 350px; height: auto; border-radius: 10px; margin-left: 0; margin-right: 0; display: block;">
+            </div>
+            <div class="next-page-container" style="flex: 0 0 auto;">
+                <a href="page4.html" class="next-page-link">心に刺さった言葉 &rarr;</a>
+            </div>
         </div>
     </footer>
     
     <script src="script.js"></script>
+    <script>
+    // 3ページ目スライドショー Intersection Observer方式
+    document.addEventListener('DOMContentLoaded', () => {
+        const slideImg = document.getElementById('slideshow-3-3');
+        if (slideImg) {
+            const slideImages = [
+                'images/3-3-1.PNG',
+                'images/3-3-2.PNG',
+                'images/3-3-3.PNG',
+                'images/3-3-4.PNG',
+                'images/3-3-5.PNG',
+                'images/3-3-6.PNG',
+                'images/3-3-7.PNG',
+                'images/3-3-8.PNG',
+                'images/3-3-9.PNG',
+                'images/3-3-10.PNG'
+            ];
+            let idx = 0;
+            let started = false;
+            let observer = null;
+            function imageExists(url, callback) {
+                const img = new Image();
+                img.onload = () => callback(true);
+                img.onerror = () => callback(false);
+                img.src = url;
+            }
+            function showNextImage() {
+                if (idx < slideImages.length - 1) {
+                    idx++;
+                    imageExists(slideImages[idx], exists => {
+                        if (exists) {
+                            slideImg.style.display = '';
+                            slideImg.src = slideImages[idx];
+                        } else {
+                            slideImg.style.display = 'none';
+                        }
+                    });
+                    if (idx < slideImages.length - 1) {
+                        setTimeout(showNextImage, 1000);
+                    }
+                }
+            }
+            function startSlideshowIfVisible(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !started) {
+                        started = true;
+                        setTimeout(showNextImage, 1000);
+                        if (observer) observer.disconnect();
+                    }
+                });
+            }
+            observer = new window.IntersectionObserver(startSlideshowIfVisible, {
+                threshold: 0.3
+            });
+            observer.observe(slideImg);
+        }
+    });
+    </script>
 </body>
 </html>
+
 

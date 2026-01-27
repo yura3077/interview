@@ -57,9 +57,7 @@
 
                     <!-- 自分 -->
                     <div class="chat-row me">
-                        <div class="chat-icon character-icon">
-                            自分の<br>アイコン
-                        </div>
+                        <div class="chat-icon character-icon"><img src="images/無題227_20260119112810.JPG" alt="自分のアイコン"></div>
                         <div class="chat-bubble">
                             <p>色んな国の人がいたんですね！一番印象に残ってることは何ですか？</p>
                         </div>
@@ -73,11 +71,14 @@
                         </div>
                     </div>
 
+                    <!-- 5ページ目と同じ画像挿入 -->
+                    <div style="display: flex; justify-content: flex-start; margin-bottom: 60px;">
+                        <img src="images/2.PNG" alt="2の写真" style="width: 350px; height: auto; border-radius: 10px; margin-right: 10px;">
+                    </div>
+
                     <!-- 自分 -->
                     <div class="chat-row me">
-                        <div class="chat-icon character-icon">
-                            自分の<br>アイコン
-                        </div>
+                        <div class="chat-icon character-icon"><img src="images/無題227_20260119112810.JPG" alt="自分のアイコン"></div>
                         <div class="chat-bubble">
                             <p>日本と海外だと留学の目的が違うんですね</p>
                         </div>
@@ -92,21 +93,82 @@
                     </div>
                 </div>
 
-                <!-- 追加GIF -->
-                <div class="page-bottom-visual" style="text-align: left; margin: 40px 0 20px 0;">
-                    <img src="images/20260118_230705.GIF" alt="Animation" style="max-width: 90%; height: auto; border-radius: 15px;">
-                </div>
+                <!-- スライドショーはfooter内に統一 -->
             </section>
         </main>
     </div> <!-- design-frame end -->
     
-    <footer>
-        <div class="next-page-container">
-            <a href="page3.html" class="next-page-link">転職からの企業改革 &rarr;</a>
+    <footer style="overflow: visible; padding-bottom: 30px; padding-left: 20px;">
+        <div style="display: flex; align-items: flex-end; justify-content: space-between; width: 100%; min-width: 0;">
+            <div style="flex: 0 0 auto; min-width: 350px; min-height: 1px; display: flex; align-items: flex-end; overflow: visible;">
+                <img id="slideshow-2-2" src="images/2-2-1.PNG" alt="2の写真" style="width: 350px; height: auto; border-radius: 10px; margin-left: 0; margin-right: 0; display: block;">
+            </div>
+            <div class="next-page-container" style="flex: 0 0 auto;">
+                <a href="page3.html" class="next-page-link">転職からの企業改革 &rarr;</a>
+            </div>
         </div>
     </footer>
     
     <script src="script.js"></script>
+    <script>
+    // 2ページ目スライドショー Intersection Observer方式
+    document.addEventListener('DOMContentLoaded', () => {
+        const slideImg = document.getElementById('slideshow-2-2');
+        if (slideImg) {
+            const slideImages = [
+                'images/2-2-1.PNG',
+                'images/2-2-2.PNG',
+                'images/2-2-3.PNG',
+                'images/2-2-4.PNG',
+                'images/2-2-5.PNG',
+                'images/2-2-6.PNG',
+                'images/2-2-7.PNG',
+                'images/2-2-8.PNG',
+                'images/2-2-9.PNG',
+                'images/2-2-10.PNG'
+            ];
+            let idx = 0;
+            let started = false;
+            let observer = null;
+            function imageExists(url, callback) {
+                const img = new Image();
+                img.onload = () => callback(true);
+                img.onerror = () => callback(false);
+                img.src = url;
+            }
+            function showNextImage() {
+                if (idx < slideImages.length - 1) {
+                    idx++;
+                    imageExists(slideImages[idx], exists => {
+                        if (exists) {
+                            slideImg.style.display = '';
+                            slideImg.src = slideImages[idx];
+                        } else {
+                            slideImg.style.display = 'none';
+                        }
+                    });
+                    if (idx < slideImages.length - 1) {
+                        setTimeout(showNextImage, 1000);
+                    }
+                }
+            }
+            function startSlideshowIfVisible(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !started) {
+                        started = true;
+                        setTimeout(showNextImage, 1000);
+                        if (observer) observer.disconnect();
+                    }
+                });
+            }
+            observer = new window.IntersectionObserver(startSlideshowIfVisible, {
+                threshold: 0.3
+            });
+            observer.observe(slideImg);
+        }
+    });
+    </script>
 </body>
 </html>
+
 

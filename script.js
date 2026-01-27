@@ -1,4 +1,64 @@
-﻿document.addEventListener('DOMContentLoaded', () => {
+﻿// --- 5ページ目 左下スライドショー ---
+document.addEventListener('DOMContentLoaded', () => {
+    const slideImg = document.getElementById('slideshow-5-5');
+    if (slideImg) {
+        const slideImages = [
+            'images/5-5-1.PNG',
+            'images/5-5-2.PNG',
+            'images/5-5-3.PNG',
+            'images/5-5-4.PNG',
+            'images/5-5-5.PNG',
+            'images/5-5-6.PNG',
+            'images/5-5-7.PNG',
+            'images/5-5-8.PNG',
+            'images/5-5-9.PNG',
+            'images/5-5-10.PNG'
+        ];
+        let idx = 0;
+        let started = false;
+        let observer = null;
+        // 画像の存在チェック関数
+        function imageExists(url, callback) {
+            const img = new Image();
+            img.onload = () => callback(true);
+            img.onerror = () => callback(false);
+            img.src = url;
+        }
+
+        function showNextImage() {
+            if (idx < slideImages.length - 1) {
+                idx++;
+                imageExists(slideImages[idx], exists => {
+                    if (exists) {
+                        slideImg.style.display = '';
+                        slideImg.src = slideImages[idx];
+                    } else {
+                        slideImg.style.display = 'none';
+                    }
+                });
+                if (idx < slideImages.length - 1) {
+                    setTimeout(showNextImage, 1000);
+                }
+            }
+        }
+
+        // Intersection Observerで画像が見えたらスタート
+        function startSlideshowIfVisible(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !started) {
+                    started = true;
+                    setTimeout(showNextImage, 1000);
+                    if (observer) observer.disconnect();
+                }
+            });
+        }
+        observer = new window.IntersectionObserver(startSlideshowIfVisible, {
+            threshold: 0.3 // 画像の30%以上が見えたら
+        });
+        observer.observe(slideImg);
+    }
+});
+document.addEventListener('DOMContentLoaded', () => {
     // アラートボタンの処理
     const button = document.getElementById('alertButton');
     if (button) {
