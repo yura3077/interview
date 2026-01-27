@@ -18,24 +18,23 @@
             <a href="page2.html" class="nav-btn color-1">ワーキングホリデー<br>の話</a>
             <a href="page3.html" class="nav-btn color-2">転職からの<br>企業改革</a>
             <a href="page4.html" class="nav-btn color-3 active">心に刺さった<br>言葉</a>
-            <a href="page5.html" class="nav-btn color-4">発言すること</a>
+            <a href="page5.html" class="nav-btn color-4" style="margin-left: auto;">発言すること</a>
         </nav>
-        
     </header>
 
     <div class="design-frame">
         <!-- タイトルセクション -->
-            <section class="title-hero">
-                <h1>3. 心に刺さった言葉</h1>
-            </section>
+        <section class="title-hero">
+            <h1>3. 心に刺さった言葉</h1>
+        </section>
 
-            <main>
-                <!-- 導入質問セクション -->
-                <section class="intro-question">
-                     <div class="question-wrapper">
-                        <p class="question-text">「相手のことを理解するために意識していることは何ですか？」</p>
-                     </div>
-                </section>
+        <main>
+            <!-- 導入質問セクション -->
+            <section class="intro-question">
+                <div class="question-wrapper">
+                    <p class="question-text">「相手のことを理解するために意識していることは何ですか？」</p>
+                </div>
+            </section>
 
             <!-- インタビューコンテンツ -->
             <section class="interview-content">
@@ -52,73 +51,16 @@
                             <p>相手のことを理解するのって難しいと思うんですけど普段意識していることはありますか？</p>
                         </div>
                     </div>
-
-
-                    <!-- のぞみさん「ちょっとあの価値観が違うかも…」の直後にスライドショー挿入 -->
-                    <div style="display: flex; justify-content: flex-start; margin-bottom: 60px;">
-                        <img id="slideshow-4-1to5" src="images/4-1.PNG" alt="4の写真" style="width: 350px; height: auto; border-radius: 10px; margin-right: 10px; display: block;">
-                    </div>
-
-                    <script>
-                    // 4-1～4-5スライドショー（Intersection Observerで表示時のみ開始、4-5で停止）
-                    document.addEventListener('DOMContentLoaded', () => {
-                        const slideImg = document.getElementById('slideshow-4-1to5');
-                        if (slideImg) {
-                            const slideImages = [
-                                'images/4-1.PNG',
-                                'images/4-2.PNG',
-                                'images/4-3.PNG',
-                                'images/4-4.PNG',
-                                'images/4-5.PNG'
-                            ];
-                            let idx = 0;
-                            let started = false;
-                            let observer = null;
-                            function imageExists(url, callback) {
-                                const img = new Image();
-                                img.onload = () => callback(true);
-                                img.onerror = () => callback(false);
-                                img.src = url;
-                            }
-                            function showNextImage() {
-                                if (idx < slideImages.length - 1) {
-                                    idx++;
-                                    imageExists(slideImages[idx], exists => {
-                                        if (exists) {
-                                            slideImg.style.display = '';
-                                            slideImg.src = slideImages[idx];
-                                        } else {
-                                            slideImg.style.display = 'none';
-                                        }
-                                    });
-                                    if (idx < slideImages.length - 1) {
-                                        setTimeout(showNextImage, 1000);
-                                    }
-                                }
-                            }
-                            function startSlideshowIfVisible(entries) {
-                                entries.forEach(entry => {
-                                    if (entry.isIntersecting && !started) {
-                                        started = true;
-                                        setTimeout(showNextImage, 1000);
-                                        if (observer) observer.disconnect();
-                                    }
-                                });
-                            }
-                            observer = new window.IntersectionObserver(startSlideshowIfVisible, {
-                                threshold: 0.3
-                            });
-                            observer.observe(slideImg);
-                        }
-                    });
-                    </script>
-
                     <!-- のぞみさん -->
                     <div class="chat-row nozomi">
                         <div class="chat-icon character-icon"><img src="images/無題222_20260118173733.jpg" alt="のぞみさん"></div>
                         <div class="chat-bubble">
                             <p>これは証券会社で働いていた時のことで、当時のチームの部下だった人から「のぞみさんは自分の“ものさし”で測っている」って言われたんですよ。めちゃくちゃショックでガーンって感じだったんですけど、今思うと言われてよかったなと思います。すっごいショックだったけど、確かにっていうのは思ったので、それから結構しょっちゅうその言葉を思い出すようにしています。</p>
                         </div>
+                    </div>
+                    <!-- スライドショー（4-1～4-5）ここに挿入 -->
+                    <div style="display: flex; justify-content: flex-start; margin-bottom: 60px;">
+                        <img id="slideshow-4-1to5" src="images/4-1.PNG" alt="4の写真" style="width: 350px; height: auto; border-radius: 10px; margin-right: 10px; display: block;">
                     </div>
 
                     <!-- 自分 -->
@@ -134,9 +76,6 @@
                         <div class="chat-icon character-icon"><img src="images/無題222_20260118173733.jpg" alt="のぞみさん"></div>
                         <div class="chat-bubble">
                             <p>ちょっとあの価値観が違うかもとか理解し合うのが難しいかもって思った時に、自分の中だけで作られた“ものさし”だけでもない、いろんな環境とかに作られてる別の“ものさし”もあるはずだっていうのは、思うようにしてますね。そっちが尊重されないと、私のもの差しも尊重されないというか。</p>
-                        </div>
-                    </div>
-
                         </div>
                     </div>
 
@@ -162,6 +101,59 @@
         </main>
     </div> <!-- design-frame end -->
     
+    <script>
+    // 4-1～4-5スライドショー（Intersection Observerで表示時のみ開始、4-5で停止）
+    document.addEventListener('DOMContentLoaded', () => {
+        const slideImg = document.getElementById('slideshow-4-1to5');
+        if (slideImg) {
+            const slideImages = [
+                'images/4-1.PNG',
+                'images/4-2.PNG',
+                'images/4-3.PNG',
+                'images/4-4.PNG',
+                'images/4-5.PNG'
+            ];
+            let idx = 0;
+            let started = false;
+            let observer = null;
+            function imageExists(url, callback) {
+                const img = new Image();
+                img.onload = () => callback(true);
+                img.onerror = () => callback(false);
+                img.src = url;
+            }
+            function showNextImage() {
+                if (idx < slideImages.length - 1) {
+                    idx++;
+                    imageExists(slideImages[idx], exists => {
+                        if (exists) {
+                            slideImg.style.display = '';
+                            slideImg.src = slideImages[idx];
+                        } else {
+                            slideImg.style.display = 'none';
+                        }
+                    });
+                    if (idx < slideImages.length - 1) {
+                        setTimeout(showNextImage, 1000);
+                    }
+                }
+            }
+            function startSlideshowIfVisible(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !started) {
+                        started = true;
+                        setTimeout(showNextImage, 1000);
+                        if (observer) observer.disconnect();
+                    }
+                });
+            }
+            observer = new window.IntersectionObserver(startSlideshowIfVisible, {
+                threshold: 0.3
+            });
+            observer.observe(slideImg);
+        }
+    });
+    </script>
     <footer style="overflow: visible; padding-bottom: 30px; padding-left: 20px;">
         <div style="display: flex; align-items: flex-end; justify-content: space-between; width: 100%; min-width: 0;">
             <div style="flex: 0 0 auto; min-width: 350px; min-height: 1px; display: flex; align-items: flex-end; overflow: visible;">
@@ -172,10 +164,8 @@
             </div>
         </div>
     </footer>
-    
-    <script src="script.js"></script>
     <script>
-    // 4ページ目スライドショー Intersection Observer方式
+    // 4ページ目footerスライドショー（4-4-1～4-4-10、Intersection Observerで表示時のみ開始）
     document.addEventListener('DOMContentLoaded', () => {
         const slideImg = document.getElementById('slideshow-4-4');
         if (slideImg) {
@@ -232,6 +222,7 @@
         }
     });
     </script>
+    <script src="script.js"></script>
 </body>
 </html>
 

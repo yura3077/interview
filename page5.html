@@ -155,7 +155,6 @@
 
         </main>
     </div> <!-- design-frame end -->
-    
     <footer style="overflow: visible; padding-bottom: 30px; padding-left: 20px;">
         <div style="display: flex; align-items: flex-end; justify-content: space-between; width: 100%; min-width: 0;">
             <div style="flex: 0 0 auto; min-width: 350px; min-height: 1px; display: flex; align-items: flex-end; overflow: visible;">
@@ -166,6 +165,64 @@
             </div>
         </div>
     </footer>
+    <script>
+    // 5ページ目スライドショー（Intersection Observerで表示時のみ開始、5-5-10で停止）
+    document.addEventListener('DOMContentLoaded', () => {
+        const slideImg = document.getElementById('slideshow-5-5');
+        if (slideImg) {
+            const slideImages = [
+                'images/5-5-1.PNG',
+                'images/5-5-2.PNG',
+                'images/5-5-3.PNG',
+                'images/5-5-4.PNG',
+                'images/5-5-5.PNG',
+                'images/5-5-6.PNG',
+                'images/5-5-7.PNG',
+                'images/5-5-8.PNG',
+                'images/5-5-9.PNG',
+                'images/5-5-10.PNG'
+            ];
+            let idx = 0;
+            let started = false;
+            let observer = null;
+            function imageExists(url, callback) {
+                const img = new Image();
+                img.onload = () => callback(true);
+                img.onerror = () => callback(false);
+                img.src = url;
+            }
+            function showNextImage() {
+                if (idx < slideImages.length - 1) {
+                    idx++;
+                    imageExists(slideImages[idx], exists => {
+                        if (exists) {
+                            slideImg.style.display = '';
+                            slideImg.src = slideImages[idx];
+                        } else {
+                            slideImg.style.display = 'none';
+                        }
+                    });
+                    if (idx < slideImages.length - 1) {
+                        setTimeout(showNextImage, 1000);
+                    }
+                }
+            }
+            function startSlideshowIfVisible(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !started) {
+                        started = true;
+                        setTimeout(showNextImage, 1000);
+                        if (observer) observer.disconnect();
+                    }
+                });
+            }
+            observer = new window.IntersectionObserver(startSlideshowIfVisible, {
+                threshold: 0.3
+            });
+            observer.observe(slideImg);
+        }
+    });
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
